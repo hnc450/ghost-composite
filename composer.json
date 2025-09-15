@@ -1,0 +1,29 @@
+{
+    "name": "black/project-php-api",
+    "type": "api",
+    "description": "PHP API project",
+    "authors": [
+        {
+            "name":"Henock",
+            "email":"henoctumonakiese@gmail.com"
+        },
+        
+        {
+            "name":"",
+            "email":""
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Service\\" :"services",
+            "Controller\\" :"controllers",
+            "Model\\" :"models",
+            "Router\\" :"router"
+        }
+    },
+    "require": {
+        "altorouter/altorouter": "^2.0",
+        "phpmailer/phpmailer": "^6.10",
+        "firebase/php-jwt": "^6.11"
+    }
+}
