@@ -6,19 +6,14 @@
         {
             "name":"Henock",
             "email":"henoctumonakiese@gmail.com"
-        },
-        
-        {
-            "name":"",
-            "email":""
         }
     ],
     "autoload": {
         "psr-4": {
-            "Service\\" :"services",
-            "Controller\\" :"controllers",
-            "Model\\" :"models",
-            "Router\\" :"router"
+            "Service\\" :"services/",
+            "Controller\\" :"controllers/",
+            "Model\\" :"models/",
+            "Router\\" :"router/"
         }
     },
     "require": {
