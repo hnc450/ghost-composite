@@ -1,11 +1,9 @@
 <?php
-require_once "MysqlDatabase.php";
-
-class UserModuleModel {
-    private $db;
-
+namespace Model;
+class UserModuleModel extends \Model\BaseModel{
+  
     public function __construct() {
-        $this->db = new MysqlDatabase();
+        $this->db = new \Model\MysqlDatabase();
     }
 
     /**

@@ -1,11 +1,11 @@
 <?php
-require_once "MysqlDatabase.php";
+namespace Model;
 
 class PayementModel {
     private $db;
 
     public function __construct() {
-        $this->db = new MysqlDatabase();
+        $this->db = new \Model\MysqlDatabase();
     }
 
     /**

@@ -1,11 +1,10 @@
 <?php
-require_once "MysqlDatabase.php";
+namespace Model;
 
-class DownloadModel {
-    private $db;
-
+class DownloadModel extends \Model\BaseModel {
+  
     public function __construct() {
-        $this->db = new MysqlDatabase();
+        $this->db = new \Model\MysqlDatabase();
     }
 
     /**

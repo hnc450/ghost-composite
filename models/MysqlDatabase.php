@@ -1,7 +1,8 @@
 <?php
-require_once "Database.php";
 
-class MysqlDatabase extends Database {
+namespace Model;
+
+class MysqlDatabase extends \Model\Database {
     private $conn;
 
     /**

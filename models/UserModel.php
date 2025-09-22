@@ -1,11 +1,11 @@
 <?php
-require_once "MysqlDatabase.php";
+namespace Model;
 
 class UserModel {
     private $db;
 
     public function __construct() {
-        $this->db = new MysqlDatabase();
+        $this->db = new \Model\MysqlDatabase();
     }
 
     /**
@@ -21,7 +21,7 @@ class UserModel {
      * Récupérer un utilisateur par son ID
      */
     public function getUserById($id) {
-    $sql = "SELECT * FROM utilisateur WHERE id_utilisateur = ?";
+        $sql = "SELECT * FROM utilisateur WHERE id_utilisateur = ?";
         return $this->db->fetchOne($sql, [$id]);
     }
 
@@ -29,7 +29,7 @@ class UserModel {
      * Récupérer un utilisateur par email
      */
     public function getUserByEmail($email) {
-    $sql = "SELECT * FROM utilisateur WHERE email = ?";
+        $sql = "SELECT * FROM utilisateur WHERE email = ?";
         return $this->db->fetchOne($sql, [$email]);
     }
 

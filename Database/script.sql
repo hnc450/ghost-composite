@@ -21,11 +21,14 @@ SET time_zone = "+00:00";
 -- Base de données : `formation_db`
 --
 
+CREATE DATABASE IF NOT EXISTS `formation_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `formation_db`;
+
 DELIMITER $$
 --
 -- Fonctions
 --
-CREATE DEFINER=`root`@`localhost` FUNCTION `can_user_download` (`p_user_id` INT UNSIGNED, `p_projet_id` INT UNSIGNED) RETURNS TINYINT(1) DETERMINISTIC READS SQL DATA BEGIN
+CREATE DEFINER=`henock`@`localhost` FUNCTION `can_user_download` (`p_user_id` INT UNSIGNED, `p_projet_id` INT UNSIGNED) RETURNS TINYINT(1) DETERMINISTIC READS SQL DATA BEGIN
   DECLARE v_categorie ENUM('freemium','premium');
   DECLARE v_has_paid INT DEFAULT 0;
   -- récupérer la catégorie du projet
