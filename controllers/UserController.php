@@ -115,6 +115,7 @@
                 'status' => 400,
                 'message' => 'Tous les champs sont requis'
             ]);
+             return;
         }
 
        if(
@@ -128,7 +129,6 @@
         }
 
         $validators = [
-            ['value' => $datas['name'], 'regex' => $this->nameRegex, 'field' => 'Nom invalide'],
             ['value' => $datas['mail'], 'regex' => $this->emailRegex, 'field' => 'Email invalide'],
             ['value' => $datas['password'], 'regex' => $this->passwordRegex, 'field' => 'Mot de passe invalide']
         ];
