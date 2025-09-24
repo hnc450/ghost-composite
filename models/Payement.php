@@ -1,11 +1,9 @@
 <?php
 namespace Model;
 
-class PayementModel {
-    private $db;
-
-    public function __construct() {
-        $this->db = new \Model\MysqlDatabase();
+class PayementModel extends BaseModel {
+    public function __construct($db = null) {
+        $this->db = $db ?? new \Model\MysqlDatabase();
     }
 
     /**

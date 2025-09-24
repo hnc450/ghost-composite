@@ -18,11 +18,16 @@
       e.preventDefault();
 
       const form = e.target;
-      const formData = new FormData(form);
+      const formData = {
+        name: form.name.value,
+        mail: form.mail.value,
+        password: form.password.value
+      };
 
-      fetch("http://locahost/login", {
+      fetch("http://localhost/project-php-api/public/sign", {
         method: "POST",
-        body: formData
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
       })
       .then(response => response.text())
       .then(data => {

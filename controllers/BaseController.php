@@ -46,17 +46,15 @@
             echo json_encode($value);
         }
 
-        public function jsonResponse($array = [])
-        {
-           header('Content-Type: application/json');
-            if($array !== null && is_array($array))
-            {
-               $this->messages = $array;
-               http_response_code($this->messages['status']);
-               $this->echoJson($this->messages);
-            }
-           
-            $this->echoJson(['' => '']);
-        }
+          public function jsonResponse($array = [])
+          {
+              header('Content-Type: application/json');
+                if($array !== null && is_array($array))
+                {
+                    $this->messages = $array;
+                    http_response_code($this->messages['status']);
+                    $this->echoJson($this->messages);
+                }
+          }
     }
 ?>

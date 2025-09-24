@@ -1,9 +1,8 @@
 <?php
 namespace Model;
-class UserModuleModel extends \Model\BaseModel{
-  
-    public function __construct() {
-        $this->db = new \Model\MysqlDatabase();
+class UserModuleModel extends BaseModel {
+    public function __construct($db = null) {
+        $this->db = $db ?? new \Model\MysqlDatabase();
     }
 
     /**

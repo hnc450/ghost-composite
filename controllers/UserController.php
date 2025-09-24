@@ -65,13 +65,14 @@
               'status' => 400,
               'message' => 'Tous les champs sont requis'
           ]);
+           return;
       }
 
      // Validation des longueurs
       if (
           !$this->valideLength($datas['name'], 6, 16) ||
-          !$this->valideLength($datas['mail']) ||
-          !$this->valideLength($datas['password'])
+          !$this->valideLength($datas['mail'], 6, 64) ||
+          !$this->valideLength($datas['password'], 6, 64)
       ) {
           $this->jsonResponse([
               'status' => 400,

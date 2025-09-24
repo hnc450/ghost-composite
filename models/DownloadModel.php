@@ -1,10 +1,9 @@
 <?php
 namespace Model;
 
-class DownloadModel extends \Model\BaseModel {
-  
-    public function __construct() {
-        $this->db = new \Model\MysqlDatabase();
+class DownloadModel extends BaseModel {
+    public function __construct($db = null) {
+        $this->db = $db ?? new \Model\MysqlDatabase();
     }
 
     /**
