@@ -20,7 +20,7 @@
            return  preg_match($match, $string) ? true : false;
         }
 
-        protected function valideLength(string $string, int $min = 6, int $max = 12):bool
+        protected function valideLength(string $string, int $min = 6, int $max = 64):bool
         {
             $length = strlen($string);
             return ($length >= $min && $length <= $max) ? true : false;
@@ -46,15 +46,15 @@
             echo json_encode($value);
         }
 
-          public function jsonResponse($array = [])
-          {
+        public function jsonResponse($array = [])
+        {
               header('Content-Type: application/json');
-                if($array !== null && is_array($array))
-                {
-                    $this->messages = $array;
-                    http_response_code($this->messages['status']);
-                    $this->echoJson($this->messages);
-                }
-          }
+              if($array !== null && is_array($array))
+              {
+                  $this->messages = $array;
+                  http_response_code($this->messages['status']);
+                  $this->echoJson($this->messages);
+              }
+        }
     }
 ?>

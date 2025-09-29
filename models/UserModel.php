@@ -65,6 +65,14 @@ class UserModel extends BaseModel {
     $sql = "DELETE FROM utilisateur WHERE id_utilisateur = ?";
         return $this->db->query($sql, [$id]);
     }
+    
+    /**
+     * Supprimer tout les utilisateurs d une bdd
+    */
+    public function deleteAllUser(){
+        $sql = "DELETE FROM utilisateur";
+        return $this->db->query($sql);
+    }
 
     /**
      * Lister tous les utilisateurs

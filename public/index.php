@@ -1,17 +1,17 @@
 <?php
    // constante pour remonter un dossier à un autre
    define("PATH", dirname(__DIR__));
-   require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+   require PATH. DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
    
    use AltoRouter as Route;
 
    $route = new Route();
    $database = new \Model\Database();
 
+
    $path = isset($_SERVER['BASE_URI']) ? $_SERVER['BASE_URI'] : '';
    $database->connect();
    
- 
    // Injection de dependance 
    // design qui permet de passer une classe en dependance à une autre 
    $router = new Router\Router($route);

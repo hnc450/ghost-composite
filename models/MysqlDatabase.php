@@ -44,8 +44,15 @@ class MysqlDatabase extends \Model\Database {
      * Exécuter une requête avec paramètres
      */
     public function query($sql, $params = []) {
+        if(!empty($params))
+        {
+           $stmt = $this->conn->prepare($sql);
+           $stmt->execute($params);
+           return $stmt;
+        }
+    
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute($params);
+        $stmt->execute($params); 
         return $stmt;
     }
 }

@@ -8,9 +8,9 @@
    });
 
    $router->get('/test',function(){
-      //require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'tests/formData.php';
-      $model = new \Model\MysqlDatabase(); ;
-      $model->query("SELECT * FROM utilisateur");
+      require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'tests/formData.php';
+      // $model = new \Model\MysqlDatabase(); ;
+      // $model->query("SELECT * FROM utilisateur");
    });
 
 

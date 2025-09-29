@@ -7,7 +7,7 @@
 </head>
 <body>
   <form id="form">
-    <input type="text" name="name" placeholder="name" required>
+    <input type="text" name="name" placeholder="name">
     <input type="email" name="mail" placeholder="mail" required>
     <input type="password" name="password" placeholder="password" required>
     <button type="submit">Soumettre</button>
@@ -19,12 +19,12 @@
 
       const form = e.target;
       const formData = {
-        name: form.name.value,
+        // name: form.name.value,
         mail: form.mail.value,
         password: form.password.value
       };
 
-      fetch("http://localhost/project-php-api/public/sign", {
+      fetch("http://localhost:8000/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
