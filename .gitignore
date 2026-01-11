@@ -1,4 +1,4 @@
 /vendor/
 composer.lock
-config/
-config.php
+composite
+composite.exe
