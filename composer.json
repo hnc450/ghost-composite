@@ -11,9 +11,13 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "App\\Models\\": "app/models",
-            "App\\Controllers\\" : "app/controllers",
-            "App\\Factory": "app/factory",
+            "App\\Models\\": "app/models/",
+            "App\\Controllers\\" : "app/controllers/",
+            "App\\Factory\\": "app/factory/",
+            "Helper\\String\\" : "helper/strings/",
+            "Helper\\Api\\":"helper/api/",
+            "Helper\\Array\\" : "helper/arrays/",
+            "Helper\\Number\\":"helper/numbers/",
             "Service\\" :"services/",
             "Router\\" :"router/"
         }
