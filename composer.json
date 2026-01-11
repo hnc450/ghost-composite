@@ -1,7 +1,7 @@
 {
     "name": "black/project-php-api",
-    "type": "api",
-    "description": "PHP API project",
+    "type": "framework",
+    "description": "PHP framework project",
     "authors": [
         {
             "name":"Henock",
@@ -10,9 +10,11 @@
     ],
     "autoload": {
         "psr-4": {
+            "App\\": "app/",
+            "App\\Models\\": "app/models",
+            "App\\Controllers\\" : "app/controllers",
+            "App\\Factory": "app/factory",
             "Service\\" :"services/",
-            "Controller\\" :"controllers/",
-            "Model\\" :"models/",
             "Router\\" :"router/"
         }
     },
