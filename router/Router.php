@@ -1,51 +1,66 @@
 <?php
  namespace Router;
+
+ use App\App;
+
    class Router
    {
-       private $router;
 
-       public function __construct(\AltoRouter $router)
+      private static string $route_name = "";
+
+      public static function name(string $name)
+      {
+        self::$route_name = $name;
+      }
+       public static function get(string $route, $target)
        {
-            $this->router = $router;
+          App::getInstanceRouter()->map('GET',$route,$target,self::$route_name);
        }
 
-       public function get(string $route, $target, string $name = '')
+       public static function post(string $route, $target)
        {
-          $this->router->map('GET',$route,$target,$name);
+        App::getInstanceRouter()->map('POST',$route,$target,self::$route_name);
        }
 
-       public function post(string $route, $target, string $name = '')
+       public static function delete(string $route, $target, string $name = '')
        {
-          $this->router->map('POST',$route,$target,$name);
+        App::getInstanceRouter()->map('DELETE',$route,$target,self::$route_name);
        }
 
-       public function delete(string $route, $target, string $name = '')
+       public static function put(string $route, $target)
        {
-          $this->router->map('DELETE',$route,$target,$name);
+        App::getInstanceRouter()->map('PUT',$route,$target,self::$route_name);
        }
-
-       public function put(string $route, $target, string $name = '')
-       {
-          $this->router->map('PUT',$route,$target,$name);
-       }
+       
        public function origin($path)
        {
-         $this->router->setBasePath($path);
+        App::getInstanceRouter()->setBasePath($path);
        }
 
-       public function matcher()
+       public static function matcher()
        {
-          $match = $this->router->match();
+          $match =App::getInstanceRouter()->match();
    
-          if($match && is_callable($match['target'])){
+          if($match && is_callable($match['target']))
+            {
             call_user_func($match['target'],$match['params']);
           }
-         else{
-            $this->respondNotFound();
-         }
+
+          elseif(is_array($match) && is_array($match['target']))
+          {
+            $controller = $match['target'][0];
+            $method = $match['target'][1];
+            $controller = new $controller();
+            $controller->$method($match['params']);
+          }
+
+          else
+          {
+             self::respondNotFound();
+          }
        }
 
-       private function respondNotFound()
+       private static function respondNotFound()
        {
            http_response_code(404);
            echo json_encode([

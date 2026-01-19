@@ -17,6 +17,7 @@
             "Helper\\String\\" : "helper/strings/",
             "Helper\\Api\\":"helper/api/",
             "Helper\\Array\\" : "helper/arrays/",
+            "Helper\\Build\\" : "helper/buils/",
             "Helper\\Number\\":"helper/numbers/",
             "Service\\" :"services/",
             "Router\\" :"router/"

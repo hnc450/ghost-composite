@@ -1,0 +1,217 @@
+#!/usr/bin/env php
+
+<?php 
+
+    $commandes =[
+      'help' => 'help ghost manipulation',
+      'version' => 'version de ghost',
+      'make:model'=>'creer un modele',
+      'make:controller' =>'creer un controller',
+      'make:view'=>'creer une vue',
+      'make:service'=>'creer un service',  
+      'make:builder'=>'creer un builder',
+      'make:query'=>'creer une requete de type sql',
+      'runner' =>'run your project'
+    ];
+
+    function help($commandes)
+    {
+     echo "Available commands\n";
+     foreach($commandes as $command => $description)
+     {
+        echo "{$command} : {$description}\n";
+     }
+    }
+
+    function model(string $file, string $folder)
+    {
+       if(is_dir($folder))
+       {
+            if(!file_exists($folder.'/'.$file.".php"))
+            {
+                $fichier = fopen($folder.'/'.$file.'.php','w');
+                if($fichier){
+                    fwrite($fichier,"<?php 
+ namespace App\models;
+
+ class {$file} extends Model {}
+?>");
+                    fclose($fichier);
+                }
+            }          
+       }
+       else
+       {
+           mkdir($folder,0777);
+        
+       }
+    }
+
+    function controller(string $file, string $folder){
+        if(!is_dir($folder))
+        {
+          mkdir($folder,0777);
+        }
+
+        if(is_dir($folder))
+        {
+              if(!file_exists($folder.'/'.$file.".php")){
+                  $fichier = fopen($folder.'/'.$file.'.php','w');
+                  if($fichier)
+                  {
+                                        fwrite($fichier,"<?php 
+  namespace App\controllers;
+
+ class {$file} extends Controller {}
+?>");
+                    fclose($fichier);
+                  }
+              }
+        }
+    }
+
+    function view(string $file,string $folder)
+    {
+        if(!is_dir($folder))
+        {
+          mkdir($folder,0777);
+        }
+        
+        if(is_dir($folder))
+        {
+            if(!file_exists($folder.'/'.$file.".php")){
+                $fichier = fopen($folder.'/'.$file.'.php','w');
+                if($fichier){
+                     fwrite($fichier,"<h1>{$file} view</h1>");
+                     fclose($fichier);
+                }
+            }
+        }
+    }
+
+    function builder(string $file,string $folder)
+    {
+     
+        if(!is_dir($folder))
+        {
+          mkdir($folder,0777);
+        }
+        
+        if(is_dir($folder))
+        {
+            if(!file_exists($folder.'/'.$file.".php")){
+                $fichier = fopen($folder.'/'.$file.'.php','w');
+                if($fichier){
+                     fwrite($fichier,"<?php 
+ namespace App\Build;
+    class {$file} {}
+?>");
+                     fclose($fichier);
+                }
+            }
+        }
+    }
+
+    function service(string $file,string $folder)
+    {
+        if(!is_dir($folder))
+        {
+          mkdir($folder,0777);
+        }
+        
+        if(is_dir($folder))
+        {
+            if(!file_exists($folder.'/'.$file.".php")){
+                $fichier = fopen($folder.'/'.$file.'.php','w');
+                if($fichier){
+                     fwrite($fichier,"<?php 
+    namespace Service;
+
+    class {$file} {}
+?>");
+                     fclose($fichier);
+                }
+            }
+        }
+    }
+
+    function version()
+    {
+       echo "Version 1.0.1\n";
+    }
+
+    if($argc < 2)
+    {
+        echo "Aucune commande specifieé : run help";
+    }
+
+    $command = $argv[1];
+
+    switch($command){
+        case 'help':
+             help($commandes);
+            break;
+        case 'version':
+               version();
+        case 'make:model':
+                 if(isset($argv[2])){
+                    $modelName = $argv[2];
+                    model(ucfirst($modelName),__DIR__.'/app/models');
+                 }
+
+                 else{
+                    echo "model name require !";
+                 }
+            break;
+        case 'make:controller':
+            if(isset($argv[2])){
+                $controllerName = $argv[2];
+                controller(ucfirst($controllerName),__DIR__.'/app/controllers');
+            }
+            else{
+                echo "controller name require !";
+            }
+            break;
+
+        case 'make:view':
+               if(isset($argv[2])){
+                  $view = $argv[2];
+                  view(strtolower($view),__DIR__.'/views');
+               }
+               else{
+                  echo "view name require !";
+               }
+            break;
+
+        case 'make:service':
+               if(isset($argv[2])){
+                  $serviceName = $argv[2];
+                  service(ucfirst($serviceName),__DIR__.'/services');
+               }
+               else{
+                  echo "service name require !";
+               }
+            break;
+        case 'make:builder':
+               if(isset($argv[2])){
+                  $builderName = $argv[2];
+                  builder(ucfirst($builderName),__DIR__.'/app/builds');
+               }
+               else{
+                  echo "builder name require !";
+               }
+            break;
+        case 'make:query':
+               if(isset($argv[2])){
+                  $queryName = $argv[2];
+                    //query(ucfirst($queryName),__DIR__.'/database');
+               }
+               else{
+                  echo "query name require !";
+               }
+            break;
+        case 'runner':
+             shell_exec('php -S localhost:8001 -t public');
+            break;
+    }
+?>
