@@ -17,10 +17,11 @@
             "Helper\\String\\" : "helper/strings/",
             "Helper\\Api\\":"helper/api/",
             "Helper\\Array\\" : "helper/arrays/",
-            "Helper\\Build\\" : "helper/buils/",
+            "Helper\\Build\\" : "helper/builds/",
             "Helper\\Number\\":"helper/numbers/",
             "Service\\" :"services/",
-            "Router\\" :"router/"
+            "Router\\" :"router/",
+            "Regex\\" :"config/regex.php"
         }
     },
     "autoload-dev": {

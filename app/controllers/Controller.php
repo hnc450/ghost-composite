@@ -16,14 +16,15 @@
     {
        return strip_tags(htmlspecialchars($input));
     }
-     public static function error(int $error)
+     public static function status(int $status)
     {
-      \http_response_code($error);
+      \http_response_code($status);
      return self::instance();
     }
     
     public static function json($array)
     {
+      header("Content-Type:application/json");
       echo json_encode($array,JSON_PRETTY_PRINT);
     }
 
