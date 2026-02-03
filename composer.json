@@ -14,15 +14,19 @@
             "App\\Models\\": "app/models/",
             "App\\Controllers\\" : "app/controllers/",
             "App\\Factory\\": "app/factory/",
+            "Container\\" : "container/",
             "Helper\\String\\" : "helper/strings/",
             "Helper\\Api\\":"helper/api/",
             "Helper\\Array\\" : "helper/arrays/",
             "Helper\\Build\\" : "helper/builds/",
             "Helper\\Number\\":"helper/numbers/",
             "Service\\" :"services/",
-            "Router\\" :"router/",
-            "Regex\\" :"config/regex.php"
+            "Router\\" :"router/"
         }
+    ,
+        "files": [
+            "config/regex.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

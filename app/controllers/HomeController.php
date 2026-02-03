@@ -9,6 +9,10 @@
     {
         echo "home";
     }
+    
+    public function test(){
+
+    }
   }
 
 ?>

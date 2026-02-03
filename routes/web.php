@@ -6,8 +6,8 @@
 
   Router::get('/',[HomeController::class,'index']);
 
-  Router::get('/test',function(){
-  
-  });
+  Router::get('/test',[HomeController::class,'test']);
+
+  Router::get('/regex',[\Tests\RegexTest::class,'test']);
   
 ?>

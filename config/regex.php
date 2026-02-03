@@ -6,5 +6,6 @@
   const USERNAME = '/^[A-Za-z]{3,}$/';
   # exemple : 45, 33
   const PRICE = '/^\d+$/';
-
+  # exemple : Mypass68 , MotdePasse5
+  const PASSWORD = "/^[A-Za-z0-9]{8,}$/";
 ?>
