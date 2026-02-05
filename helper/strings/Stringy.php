@@ -8,6 +8,11 @@
         return $str ? $str : false;
       }
 
+      public static function filled(string $str):bool
+      {
+        return !self::empty($str);
+      }
+
       public static function concate(string $first = " ",string $second = " "):string
       {
         return $first . $second;

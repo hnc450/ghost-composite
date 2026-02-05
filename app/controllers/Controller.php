@@ -7,7 +7,7 @@
     private static function instance():self{
         if(is_null(self::$controller))
         {
-          self::$controller = new Controller();
+          self::$controller = new self();
         }
         return self::$controller;
     }
@@ -32,5 +32,10 @@
       $datas = \file_get_contents('php://input');
       return $datas;
     }
+
+    public function create(){}
+    public function delete(){}
+    public function  index(){}
+    public function update(){}
   }
 ?>
