@@ -1,8 +1,8 @@
 <?php 
   return [
-    'DB_USER' => 'henock',
-    'DB_MDP' => 'root@2004',
-    'DB_NAME' => 'laravel',
+    'DB_USER' => '',
+    'DB_MDP' => '',
+    'DB_NAME' => '',
     # exemple : mysql , pgsql
     'DB_SGBD' => 'mysql',
 

@@ -9,12 +9,6 @@
 
     public function index()
     {
-       $query = new Query();
-       
-       var_dump($query->fetch('users'));
-    }
-    
-    public function test(){
 
     }
     
