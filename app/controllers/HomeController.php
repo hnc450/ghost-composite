@@ -1,17 +1,19 @@
 <?php
 
-   namespace App\controllers;
+namespace App\controllers;
 
-   use Helper\Build\Query;
+use App\View;
 
-  class HomeController  extends Controller
-  {
-
+class HomeController extends Controller
+{
     public function index()
     {
 
     }
-    
-  }
 
-?>
+    public function test()
+    {
+        View::view('test');
+    }
+
+}

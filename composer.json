@@ -15,6 +15,7 @@
             "App\\Controllers\\" : "app/controllers/",
             "App\\Factory\\": "app/factory/",
             "Container\\" : "container/",
+            "Core\\":"core/",
             "Helper\\String\\" : "helper/strings/",
             "Helper\\Api\\":"helper/api/",
             "Helper\\Array\\" : "helper/arrays/",
