@@ -18,6 +18,11 @@
         return $first . $second;
       }
 
+      public static function compare(string $first, string $second):bool
+      {
+        return $first === $second ? true : false;
+      }
+
       public static function lengthError(string $str, int $minLength = 3,int $maxLength = 8):string
       {
         return strlen($str) < $minLength || strlen($str) > $maxLength ?

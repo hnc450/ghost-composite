@@ -10,7 +10,7 @@
 
     public function __construct()
      {
-         $this->config = require dirname(__DIR__,2).'/config/database.php';
+         $this->config = require dirname(__DIR__,2). DIRECTORY_SEPARATOR.'config'. DIRECTORY_SEPARATOR.'database.php';
      }
 
     public static function Instance():self{
@@ -38,7 +38,7 @@
         return $smt;
     }
 
-    public function prepare(string $request , $params = []){
+    public function prepare(string $request , array $params = []){
         $smt = $this->connexion->prepare($request);
         $smt->execute($params);
         return $smt;
