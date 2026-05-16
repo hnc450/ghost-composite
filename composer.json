@@ -1,5 +1,5 @@
 {
-    "name": "black/project-php-api",
+    "name": "hnc450/framework",
     "type": "framework",
     "description": "PHP framework project",
     "authors": [
@@ -21,6 +21,7 @@
             "Helper\\Array\\" : "helper/arrays/",
             "Helper\\Build\\" : "helper/builds/",
             "Helper\\Number\\":"helper/numbers/",
+            "Helper\\Log\\":"helper/log/",
             "Service\\" :"services/",
             "Router\\" :"router/"
         }

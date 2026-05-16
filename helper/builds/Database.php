@@ -2,6 +2,9 @@
 
   namespace Helper\Build;
 
+use Container\Dic;
+use Helper\Log\LogManagement;
+
   class Database{
 
      private $config;
@@ -21,7 +24,8 @@
      }
 
     public function run(){
-     
+        $logManagement = Dic::get(LogManagement::class);
+         
         try{
             $this->connexion = new \PDO($this->config['DB_SGBD'].":host=".$this->config['DB_HOST'].";dbname={$this->config['DB_NAME']}",$this->config['DB_USER'],$this->config['DB_MDP'],[
                 \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
@@ -29,7 +33,9 @@
                  ]);
         }
         catch(\PDOException $e){
-            echo $e->getMessage();
+            //echo $e->getMessage();
+            $logManagement->create($e->getMessage());
+            
         }
     }
 
